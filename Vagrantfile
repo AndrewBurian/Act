@@ -69,5 +69,7 @@ Vagrant.configure(2) do |config|
    config.vm.provision "shell", inline: <<-SHELL
      sudo apt-get update
      sudo apt-get install -y golang git
+     echo 'listen_addresses="*"' >> /etc/postgresql/9.3/main/postgresql.conf
+     echo 'host    all             all             all                     trust' >> /etc/postgresql/9.3/main/pg_hba.conf
    SHELL
 end
